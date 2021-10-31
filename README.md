@@ -28,8 +28,9 @@ The dataset, as mentioned previously in the *Topic* section has the next content
 -          Adjusting Closing price
 -          Volume traded
 
-![Lenneth](readme_images/Jan_Apr2020.png)
-![Ale](readme_images/Head_Mayo-Agosto.png)
+![Larissa](https://github.com/LennethNova/Project_B/blob/main/readme_images/Jan_Apr2020.PNG)
+
+![Ale](https://github.com/LennethNova/Project_B/blob/main/readme_images/Head_Mayo-Agosto.PNG)
  
 ## Dashboard
 For now, the dashboard will not be shown since the data needs to be complete in order to start visualizing the results, but the idea is to create a Dashboard that we can use it with our potential clients to be able to advise them in an easier and more visual way in with we can communicate the findings of the models in an understandable way so they can make and informed decision. 
