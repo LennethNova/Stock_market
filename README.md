@@ -28,7 +28,7 @@ The dataset, as mentioned previously in the *Topic* section has the next content
 -          Adjusting Closing price
 -          Volume traded
 
-![Lenneth](https://github.com/LennethNova/Project_B/blob/Larissa/readme_images/Jan_Apr2020.PNG)
+![Larissa](https://github.com/LennethNova/Project_B/blob/Larissa/readme_images/Jan_Apr2020.PNG)
 
 ![Ale](https://github.com/LennethNova/Project_B/blob/main/readme_images/Head_Mayo-Agosto.PNG)
  
