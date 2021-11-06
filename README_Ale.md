@@ -27,6 +27,14 @@ The dataset, as mentioned previously in the *Topic* section has the next content
 -          Closing
 -          Adjusting Closing price
 -          Volume traded
+
+- Overview of the data bases
+
+![Larissa](https://github.com/LennethNova/Project_B/blob/Alejandra/Readme_Images/Jan_Apr2020.png)
+
+![Ale](https://github.com/LennethNova/Project_B/blob/Alejandra/Readme_Images/Head_Mayo-Agosto.png)
+
+![Rubi](https://github.com/LennethNova/Project_B/blob/Alejandra/Readme_Images/Septiembre-Diciembre.png)
  
 ## Dashboard
 For now, the dashboard will not be shown since the data needs to be complete in order to start visualizing the results, but the idea is to create a Dashboard that we can use it with our potential clients to be able to advise them in an easier and more visual way in with we can communicate the findings of the models in an understandable way so they can make and informed decision. 
