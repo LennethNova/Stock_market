@@ -41,3 +41,14 @@ The dataset, as mentioned previously in the *Topic* section has the next content
 For now, the dashboard will not be shown since the data needs to be complete in order to start visualizing the results.
 
 - 30/10/21: Read some papers and update the principal readme file while making this journal for the activities that every day I will make. Review Udemy courses. Check with my tutor some topics and some questions that could be considered for the project. Research on previous models in order to know how to use the ARIMA model.
+
+- 31/10/21: Talk with Gabriel about finance in order to understand more the stock market.
+Make a Jupyter notebook with the csv and the conection to the database.
+
+- 01/11/21 to 04/11/21: Researching about the different models and check some courses on how to implement them
+
+- 04/11/21: Fix the csv files and keep on the research.
+
+- 06/11/21: Test possible way to input the whole years' data into the database. Test database and fix possible bugs.
+
+- 07/11/21: Implement the test into the jupyter notebook file and test that eveything works. After testing, clean the jupyter notebook file in order to share it to the team members. Edit the presentation in google slides.
