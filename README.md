@@ -30,7 +30,7 @@ The challenge is to get the best accuracy possible for the models and to make a 
 
 During the preprocessing phase, the data for each company is shown in its individual stock graph and the second is referring to the stationality. This way it can be determined if the stock could depend on the season or if it will be random.
 
-![StockSeason_Graph_SAMPLE](https://github.com/LennethNova/Project_B/blob/main/readme_images/stock_season.png | width=80)
+![StockSeason_Graph_SAMPLE](https://github.com/LennethNova/Project_B/blob/main/readme_images/stock_season.png)
 
 
 ## MODELS
@@ -65,7 +65,7 @@ The log transformation is often used to convert time series that are non station
 
 LSTM networks are well-suited to *classifying, processing and making predictions based on time series data*, since there can be lags of unknown duration between important events in a time series. LSTMs were developed to deal with the exploding and vanishing gradient problems that can be encountered when training traditional RNNs. Relative insensitivity to gap length is an advantage of LSTM over RNNs, hidden Markov models and other sequence learning methods in numerous applications.
 
-![LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png | width=80)
+![LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png)
 
  
 ## Database
