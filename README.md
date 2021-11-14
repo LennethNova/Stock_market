@@ -30,7 +30,7 @@ The challenge is to get the best accuracy possible for the models and to make a 
 
 During the preprocessing phase, the data for each company is shown in its individual stock graph and the second is referring to the stationality. This way it can be determined if the stock could depend on the season or if it will be random.
 
-![StockSeason_Graph_SAMPLE](https://github.com/LennethNova/Project_B/blob/main/readme_images/stock_season.PNG)
+![StockSeason_Graph_SAMPLE](https://github.com/LennethNova/Project_B/blob/main/readme_images/stock_season.png | width=80)
 
 
 ## MODELS
