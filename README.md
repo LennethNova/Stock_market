@@ -99,7 +99,7 @@ For now, the dashboard will not be shown since the data needs to be complete in 
 
 In the presentation, for now there is a possible dummy of the Tableau or a possible use of other tools.
 Here you can see the Dashboard for this proyect: 
-*** https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/Project_B_Dashboard/General?publish=yes ***
+https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/Project_B_Dashboard/General?publish=yes 
 
 
 # References
