@@ -81,19 +81,19 @@ In order to test the models, eash ticker was run individually and showed poor pe
 
 The accuracy for this model increases by using more tickers, knowing this, testing a little more will probably make something more accurate.
 
-![Correlation](../readme_images/ABBV_correlation_matrix.png)
-![Seasonality](../readme_images/ABBV_seasonality.png)
-![Scatter](../readme_images/ABBV_scatter_matrix.png)
+![Correlation](https://github.com/LennethNova/Project_B/blob/Larissa/readme_images/ABBV_correlation_matrix.png)
+![Seasonality](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_seasonality.png)
+![Scatter](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_scatter_matrix.png)
 
-![Singles_01](../readme_images/ABBV_comparison_Single.png)
-![Singles_02](../readme_images/ABBV_error_testing_Single.png)
-![Singles_03](../readme_images/ABBV_predictions_Single.png)
-![Singles_04](../readme_images/ABBV_train_test_Single.png)
+![Singles_01](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_comparison_Single.png)
+![Singles_02](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_error_testing_Single.png)
+![Singles_03](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_predictions_Single.png)
+![Singles_04](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_train_test_Single.png)
 
-![All_01](../readme_images/ABBV_Kfold_comparison_ALL.png)
-![All_02](../readme_images/ABBV_train_test_error_comparison_ALL.png)
-![All_03](../readme_images/ABBV_actual_predicted_ALL.png)
-![All_04](../readme_images/ABBV_train_test_LSTM_ALL.png)
+![All_01](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_Kfold_comparison_ALL.png)
+![All_02](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_train_test_error_comparison_ALL.png)
+![All_03](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_actual_predicted_ALL.png)
+![All_04](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_train_test_LSTM_ALL.png)
 
  
 ## Database
