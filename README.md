@@ -98,7 +98,7 @@ data_df.head()
 For now, the dashboard will not be shown since the data needs to be complete in order to start visualizing the results, but the idea is to create a Dashboard that we can use it with our potential clients to be able to advise them in an easier and more visual way in with we can communicate the findings of the models in an understandable way so they can make and informed decision. 
 
 In the presentation, for now there is a possible dummy of the Tableau or a possible use of other tools.
-Here you can see the Dashboard for this proyect: 
+In the next url can see the Dashboard for this proyect:
 https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/Project_B_Dashboard/General?publish=yes 
 
 
