@@ -52,7 +52,18 @@ The dataset, as mentioned previously in the Topic section has the next content:
 For now, the dashboard will not be shown since the data needs to be complete in order to start visualizing the results, but the idea is to create a Dashboard that we can use it with our potential clients to be able to advise them in an easier and more visual way in with we can communicate the findings of the models in an understandable way so they can make and informed decision.
 
 
+# Long Short-Term Memory Network (LSTM)
 
+LSTM es una RNN que es entrenada usando Backpropagation Through Time y supera el problema del gradiente que desaparece. En lugar de neuronas el LSTM tiene bloques de memoria que se conectan en capas. Un bloque tiene componentes que la hacen más "lista" que clásicas neurona y una memoria para secuencias recientes. Un bloque contiene puertas que administran el estado del bloque y su output. Una unidad opera a través de una secuencia de inputs y cada puerta dentro del bloque usa una función sigmoidal para controlar si son "disparadas" o no, haciendo el cambio en el bloque y si la información viaja o no.
+
+Hay 3 tipos de puertas dentro de una unidad de memoria:
+
+Puerta de Olvido: Condicionalmente decide qué información descartar
+Puerta Input: "" qué valores del input actualizarán el estado de memoria
+Puerta Output: "" que outpus se tendrán basados en el input y la memoria.
+Cada puerta tiene pesos que se aprenden durante el proceso.
+
+![image](https://user-images.githubusercontent.com/86340630/142929530-9052af20-0f27-4bf5-abc0-817daa05b821.png)
 
 
 
