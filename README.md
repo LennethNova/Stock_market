@@ -13,13 +13,6 @@ Using Google slides, the draft of the presentation is located [here](https://doc
 - *Questions to answer*: How to invest? Which are the best stock options?
 - *Data exploration phase*: Scrap the data in order to know what it has.
 - *Analysis phase*: data extraction, data exploration, check possible database to generate, data preprocessing, data training, ML models, predictors, dashboard dummy visualization.
-
-## Communication protocols
-To communicate with the team members, the next platforms will be used:
-- **Slack:** There was a new workspace created in order to keep in touch with all the team members.
-- **Zoom:** Using the time during the bootcamp and office hours in order to keep working on the project. Also, there is the possibility to use it outside the bootcamp class or office hours.
-- **Google Meet:** In case there is a need to discuss any topic related to the challenge, and there is no way to access Zoom, this will be another way to contact each team member.
-- **WhatsApp:** In order to contact each team member as fast as possible, and since it seems that not all messages arrive fast using slack, this app was needed.
  
 ## Github
 A Github was created with the name of Project_B (https://github.com/LennethNova/Project_B) and each team member has a branch with their respective name in order to control the way the data will be uploaded.
@@ -67,6 +60,41 @@ LSTM networks are well-suited to *classifying, processing and making predictions
 
 ![LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png)
 
+### Data preprocessing
+There were changes that had to be made in order for the model to work, one of those was to tae every healthcare related ticker and scraping the data instead of saving it into a database in order for the models to work. ARIMA and LSTM are the ones that researching lead to use those models.
+
+ARIMA and LSTM are optimized for this kind of data due to their respective properties.
+
+During the data gathering, yahoo finance was used using a scraper function in order to obtaing the ticker information. During this scraping, the money exchange that was used is Yen to US dollar and US dollar to UK currency. The indexes that were considered were The Standard and Poor's 500 (SP500), Dow Jones Industrial Average (DJIA) and the Volatility Index (VIXCLS). These were suggested in the book *Machine Learning and Data Science Blueprints for Finance: From Building Trading Strategies to Robo-Advisors Using Python (1st ed.)*. Training and testing was divided in 80% to 20%.
+
+After collecting the respective data, the data was inspected in order to check what it was offering in order to get the training and testing information sets. The columns with the date, adjusted close and the ticker name were selected for the analysis. The Y variable is considered to be the weekly performanc in time plus one, while the period will be five in order to make it supervised. 
+
+In order to check the data, it is important to check if the seasonality applys to it in order to give a better predictor in Y. This will be shown in the images by ticker name.
+
+The X training and testing set have the lag by week, 3 weeks, 6 weeks and 12 weeks for a better visualization.
+
+It is important to note that all NaN data in X mush be removed and if anything still remains the SimpleImputer with *mean* will substitute the data in order to fill that null spaces that will normally be filled. This is only applied to the necessary data. In the dataset, the data that will be there is related to just weeks and it is a start, finish and a leap leaving 225 observations.
+
+A correlation matrix is shown with all and also by individual tickers. Unfortunately, the scatter matrix is too heavy for the current computer to run, but individuals are shown. 
+
+In order to test the models, eash ticker was run individually and showed poor performance at predicting even with ARIMA or LSTM, but after testing the second time for each ticker versus all, the predictions improved drastically.
+
+The accuracy for this model increases by using more tickers, knowing this, testing a little more will probably make something more accurate.
+
+![Correlation](../readme_images/ABBV_correlation_matrix.png)
+![Seasonality](../readme_images/ABBV_seasonality.png)
+![Scatter](../readme_images/ABBV_scatter_matrix.png)
+
+![Singles_01](../readme_images/ABBV_comparison_Single.png)
+![Singles_02](../readme_images/ABBV_error_testing_Single.png)
+![Singles_03](../readme_images/ABBV_predictions_Single.png)
+![Singles_04](../readme_images/ABBV_train_test_Single.png)
+
+![All_01](../readme_images/ABBV_Kfold_comparison_ALL.png)
+![All_02](../readme_images/ABBV_train_test_error_comparison_ALL.png)
+![All_03](../readme_images/ABBV_actual_predicted_ALL.png)
+![All_04](../readme_images/ABBV_train_test_LSTM_ALL.png)
+
  
 ## Database
 The dataset, as mentioned previously in the *Topic* section has the next content:
@@ -99,7 +127,11 @@ For now, the dashboard will not be shown since the data needs to be complete in 
 
 In the presentation, for now there is a possible dummy of the Tableau or a possible use of other tools.
 
+https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/Project_B_Dashboard/General?publish=yes
+
 # References
 José Alberto Mauricio. (n.d.). Introducción al Análisis de Series Temporales. Universidad Complutense De Madrid. Retrieved November 14, 2021, from https://www.ucm.es/data/cont/docs/518-2013-11-11-JAM-IAST-Libro.pdf
 
 Understanding LSTM Networks. (2015, August 27). Colah’s Blog. Retrieved November 14, 2021, from https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+Tatsat, H., Puri, S., & Lookabaugh, B. (2020). Machine Learning and Data Science Blueprints for Finance: From Building Trading Strategies to Robo-Advisors Using Python (1st ed.). O’Reilly Media.
