@@ -1,6 +1,7 @@
-# Draft:
+# STOCK MARKET PREDICTION
+
 ## Topic
-Using Yahoo Finance and the code obtained from the Towards Data Science webpage (https://towardsdatascience.com/downloading-historical-stock-prices-in-python-93f85f059c1f) in order to scrape the information containing the stock data (Date, Open, High, Low, Close, Adj Close, Volume, Name), the topic that will be covered is to create a portfolio in order to suggest people or  companies to invest. By working on the data, the target is to create a model that helps predict possible ups and downs in the market using the historical stock prices.
+Using Yahoo Finance and the code obtained from the Towards Data Science [webpage](https://towardsdatascience.com/downloading-historical-stock-prices-in-python-93f85f059c1f) in order to scrape the information containing the stock data (Date, Open, High, Low, Close, Adj Close, Volume, Name), the topic that will be covered is to create a portfolio in order to suggest people or  companies to invest. By working on the data, the target is to create a model that helps predict possible ups and downs in the market using the historical stock prices.
 The main reason to select this topic is that this data is real and will be of great use to polish skills and make something that will be useful for someone that wants to invert in the stock market, with this in mind we could have the chance to create a company that allows us to advise people or even companies about how to invest their money in the market with potential good results or even take a better decisions in our own investments.   
 Using a time series model and machine learning models, specially Support Vector Machine and Artificial Neural Networks, the data will be tested and trained to try to accomplish a good percent of accuracy. For this, the data that will be used are samples taken in regular time intervals, with pandas, numpy and matplotlib, the time behavior can be observed. Also, it is important to note that Keras will be used and, a deeper research on exponential smoothing will be made.
 
@@ -15,7 +16,7 @@ Using Google slides, the draft of the presentation is located [here](https://doc
 - *Analysis phase*: data extraction, data exploration, check possible database to generate, data preprocessing, data training, ML models, predictors, dashboard dummy visualization.
  
 ## Github
-A Github was created with the name of Project_B (https://github.com/LennethNova/Project_B) and each team member has a branch with their respective name in order to control the way the data will be uploaded.
+A Github was created with the name of [Project_B](https://github.com/LennethNova/Project_B) and each team member has a branch with their respective name in order to control the way the data will be uploaded.
  
 ## Machine Learning Model
 For this data, different models will be used to test the accuracy. As previously mentioned in the *Topic* section, SVM, ANN and other models will be used to train and test the data. Libraries such as pandas, numpy and matplotlib will also be considered in this point, but the analysis will not be exclusive to the use of those since some others will be needed in order to accomplish the project.
@@ -60,78 +61,26 @@ LSTM networks are well-suited to *classifying, processing and making predictions
 
 ![LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png)
 
+### Changes in models
+The first attempt to analyze the data was using a code to scrap it and make it into a file in order to then clean it and process it. Using this method was slow and also some tickers were lost in the process, that is why it was decided to use the pandas-datareader according to the research that was made. After that change was made, the data cleaning was easier and it included all the tickers.
+
 ### Data preprocessing
-There were changes that had to be made in order for the model to work, one of those was to tae every healthcare related ticker and scraping the data instead of saving it into a database in order for the models to work. ARIMA and LSTM are the ones that researching lead to use those models.
+There were changes that had to be made in order for the model to work, one of those was to tae every healthcare related ticker and scraping the data instead of saving it into a database in order for the models to work. ARIMA and LSTM are the ones that researching lead to use those models. Also, it is important to install python 3.6 in order for this code to run properly, if not, an error will occur while running the models.
 
-ARIMA and LSTM are optimized for this kind of data due to their respective properties.
+#### Setting the envionment
+To run the model, the environment code in anaconda is as follows:
+conda update conda
+Proceed: y
+conda create -n mlenvi python=3.6 anaconda
+Proceed: y
+conda activate mlenvi
+pip install environment_kernels
+conda install -c conda-forge imbalanced-learn
+Proceed: y
+python -m ipykernel install --user --name mlenvi
+pip install --upgrade tensorflow
 
-During the data gathering, yahoo finance was used using a scraper function in order to obtaing the ticker information. During this scraping, the money exchange that was used is Yen to US dollar and US dollar to UK currency. The indexes that were considered were The Standard and Poor's 500 (SP500), Dow Jones Industrial Average (DJIA) and the Volatility Index (VIXCLS). These were suggested in the book *Machine Learning and Data Science Blueprints for Finance: From Building Trading Strategies to Robo-Advisors Using Python (1st ed.)*. Training and testing was divided in 80% to 20%.
+Also, the pandas datareader must be installed with pip install pandas-datareader. This will allow the data extraction from different internet sources (in this case Yahoo Finance), and make it a dataframe.
 
-After collecting the respective data, the data was inspected in order to check what it was offering in order to get the training and testing information sets. The columns with the date, adjusted close and the ticker name were selected for the analysis. The Y variable is considered to be the weekly performanc in time plus one, while the period will be five in order to make it supervised. 
-
-In order to check the data, it is important to check if the seasonality applys to it in order to give a better predictor in Y. This will be shown in the images by ticker name.
-
-The X training and testing set have the lag by week, 3 weeks, 6 weeks and 12 weeks for a better visualization.
-
-It is important to note that all NaN data in X mush be removed and if anything still remains the SimpleImputer with *mean* will substitute the data in order to fill that null spaces that will normally be filled. This is only applied to the necessary data. In the dataset, the data that will be there is related to just weeks and it is a start, finish and a leap leaving 225 observations.
-
-A correlation matrix is shown with all and also by individual tickers. Unfortunately, the scatter matrix is too heavy for the current computer to run, but individuals are shown. 
-
-In order to test the models, eash ticker was run individually and showed poor performance at predicting even with ARIMA or LSTM, but after testing the second time for each ticker versus all, the predictions improved drastically.
-
-The accuracy for this model increases by using more tickers, knowing this, testing a little more will probably make something more accurate.
-
-![Correlation](https://github.com/LennethNova/Project_B/blob/Larissa/readme_images/ABBV_correlation_matrix.png)
-![Seasonality](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_seasonality.png)
-![Scatter](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_scatter_matrix.png)
-
-![Singles_01](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_comparison_Single.png)
-![Singles_02](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_error_testing_Single.png)
-![Singles_03](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_predictions_Single.png)
-![Singles_04](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_train_test_Single.png)
-
-![All_01](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_Kfold_comparison_ALL.png)
-![All_02](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_train_test_error_comparison_ALL.png)
-![All_03](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_actual_predicted_ALL.png)
-![All_04](https://github.com/LennethNova/Project_B/blob/Larissa//readme_images/ABBV_train_test_LSTM_ALL.png)
-
- 
-## Database
-The dataset, as mentioned previously in the *Topic* section has the next content:
-- Stock symbol
-- Date
-- Open
-- High
-- Low
-- Closing
-- Adjusting Closing price
-- Volume traded
-
-![Larissa](https://github.com/LennethNova/Project_B/blob/main/readme_images/Jan_Apr2020.PNG)
-
-![Ale](https://github.com/LennethNova/Project_B/blob/main/readme_images/Head_Mayo-Agosto.PNG)
-
-![Rubi](https://user-images.githubusercontent.com/86340630/139752046-8a3b2bcc-87ac-42cb-a7f8-7e525a261827.png)
-
-There will be some adjustments in the final database, so it can have the data with the predictions, but this will be added when the code is completely working.
-
-The code using *sqlalchemy* could be as follows:
-db_string = f"postgresql://postgress:{db_password}@localhost:port_number/database_name"
-engine = create_engine(db_string)
-data.to_sql(name="table_name", con=engine)
-data_df= pd.read_sql("SELECT * FROM table_name", engine)
-data_df.head()
- 
-## Dashboard
-For now, the dashboard will not be shown since the data needs to be complete in order to start visualizing the results, but the idea is to create a Dashboard that we can use it with our potential clients to be able to advise them in an easier and more visual way in with we can communicate the findings of the models in an understandable way so they can make and informed decision. 
-
-In the presentation, for now there is a possible dummy of the Tableau or a possible use of other tools.
-
-https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/Project_B_Dashboard/General?publish=yes
-
-# References
-José Alberto Mauricio. (n.d.). Introducción al Análisis de Series Temporales. Universidad Complutense De Madrid. Retrieved November 14, 2021, from https://www.ucm.es/data/cont/docs/518-2013-11-11-JAM-IAST-Libro.pdf
-
-Understanding LSTM Networks. (2015, August 27). Colah’s Blog. Retrieved November 14, 2021, from https://colah.github.io/posts/2015-08-Understanding-LSTMs/
-
-Tatsat, H., Puri, S., & Lookabaugh, B. (2020). Machine Learning and Data Science Blueprints for Finance: From Building Trading Strategies to Robo-Advisors Using Python (1st ed.). O’Reilly Media.
+#### Running the model
+ARIMA and LSTM are optimized for this kind of data due to their respective properties because both models help with the forecast and also, since the project involves time, those two models were what some research pointed to use.
