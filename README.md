@@ -1,6 +1,7 @@
-# Draft:
+# STOCK MARKET PREDICTION
+
 ## Topic
-Using Yahoo Finance and the code obtained from the Towards Data Science webpage (https://towardsdatascience.com/downloading-historical-stock-prices-in-python-93f85f059c1f) in order to scrape the information containing the stock data (Date, Open, High, Low, Close, Adj Close, Volume, Name), the topic that will be covered is to create a portfolio in order to suggest people or  companies to invest. By working on the data, the target is to create a model that helps predict possible ups and downs in the market using the historical stock prices.
+Using Yahoo Finance and the code obtained from the Towards Data Science [webpage](https://towardsdatascience.com/downloading-historical-stock-prices-in-python-93f85f059c1f) in order to scrape the information containing the stock data (Date, Open, High, Low, Close, Adj Close, Volume, Name), the topic that will be covered is to create a portfolio in order to suggest people or  companies to invest. By working on the data, the target is to create a model that helps predict possible ups and downs in the market using the historical stock prices.
 The main reason to select this topic is that this data is real and will be of great use to polish skills and make something that will be useful for someone that wants to invert in the stock market, with this in mind we could have the chance to create a company that allows us to advise people or even companies about how to invest their money in the market with potential good results or even take a better decisions in our own investments.   
 Using a time series model and machine learning models, specially Support Vector Machine and Artificial Neural Networks, the data will be tested and trained to try to accomplish a good percent of accuracy. For this, the data that will be used are samples taken in regular time intervals, with pandas, numpy and matplotlib, the time behavior can be observed. Also, it is important to note that Keras will be used and, a deeper research on exponential smoothing will be made.
 
@@ -15,7 +16,7 @@ Using Google slides, the draft of the presentation is located [here](https://doc
 - *Analysis phase*: data extraction, data exploration, check possible database to generate, data preprocessing, data training, ML models, predictors, dashboard dummy visualization.
  
 ## Github
-A Github was created with the name of Project_B (https://github.com/LennethNova/Project_B) and each team member has a branch with their respective name in order to control the way the data will be uploaded.
+A Github was created with the name of [Project_B](https://github.com/LennethNova/Project_B) and each team member has a branch with their respective name in order to control the way the data will be uploaded.
  
 ## Machine Learning Model
 For this data, different models will be used to test the accuracy. As previously mentioned in the *Topic* section, SVM, ANN and other models will be used to train and test the data. Libraries such as pandas, numpy and matplotlib will also be considered in this point, but the analysis will not be exclusive to the use of those since some others will be needed in order to accomplish the project.
@@ -59,6 +60,31 @@ The log transformation is often used to convert time series that are non station
 LSTM networks are well-suited to *classifying, processing and making predictions based on time series data*, since there can be lags of unknown duration between important events in a time series. LSTMs were developed to deal with the exploding and vanishing gradient problems that can be encountered when training traditional RNNs. Relative insensitivity to gap length is an advantage of LSTM over RNNs, hidden Markov models and other sequence learning methods in numerous applications.
 
 ![LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png)
+
+### Changes in models
+The first attempt to analyze the data was using a code to scrap it and make it into a file in order to then clean it and process it. Using this method was slow and also some tickers were lost in the process, that is why it was decided to use the pandas-datareader according to the research that was made. After that change was made, the data cleaning was easier and it included all the tickers.
+
+### Data preprocessing
+There were changes that had to be made in order for the model to work, one of those was to tae every healthcare related ticker and scraping the data instead of saving it into a database in order for the models to work. ARIMA and LSTM are the ones that researching lead to use those models. Also, it is important to install python 3.6 in order for this code to run properly, if not, an error will occur while running the models.
+
+#### Setting the envionment
+To run the model, the environment code in anaconda is as follows:
+conda update conda
+Proceed: y
+conda create -n mlenvi python=3.6 anaconda
+Proceed: y
+conda activate mlenvi
+pip install environment_kernels
+conda install -c conda-forge imbalanced-learn
+Proceed: y
+python -m ipykernel install --user --name mlenvi
+pip install --upgrade tensorflow
+
+Also, the pandas datareader must be installed with pip install pandas-datareader. This will allow the data extraction from different internet sources (in this case Yahoo Finance), and make it a dataframe.
+
+#### Running the model
+ARIMA and LSTM are optimized for this kind of data due to their respective properties because both models help with the forecast and also, since the project involves time, those two models were what some research pointed to use.
+
 
 ### Data preprocessing
 There were changes that had to be made in order for the model to work, one of those was to tae every healthcare related ticker and scraping the data instead of saving it into a database in order for the models to work. ARIMA and LSTM are the ones that researching lead to use those models.
@@ -135,3 +161,4 @@ José Alberto Mauricio. (n.d.). Introducción al Análisis de Series Temporales.
 Understanding LSTM Networks. (2015, August 27). Colah’s Blog. Retrieved November 14, 2021, from https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
 Tatsat, H., Puri, S., & Lookabaugh, B. (2020). Machine Learning and Data Science Blueprints for Finance: From Building Trading Strategies to Robo-Advisors Using Python (1st ed.). O’Reilly Media.
+
