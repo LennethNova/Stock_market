@@ -1,5 +1,4 @@
-# STOCK MARKET PREDICTION
-
+# STOCK MARKET PREDICTION:
 ## Topic
 Using Yahoo Finance and the code obtained from the Towards Data Science [webpage](https://towardsdatascience.com/downloading-historical-stock-prices-in-python-93f85f059c1f) in order to scrape the information containing the stock data (Date, Open, High, Low, Close, Adj Close, Volume, Name), the topic that will be covered is to create a portfolio in order to suggest people or  companies to invest. By working on the data, the target is to create a model that helps predict possible ups and downs in the market using the historical stock prices.
 The main reason to select this topic is that this data is real and will be of great use to polish skills and make something that will be useful for someone that wants to invert in the stock market, with this in mind we could have the chance to create a company that allows us to advise people or even companies about how to invest their money in the market with potential good results or even take a better decisions in our own investments.   
@@ -69,16 +68,16 @@ There were changes that had to be made in order for the model to work, one of th
 
 #### Setting the envionment
 To run the model, the environment code in anaconda is as follows:
-conda update conda
-Proceed: y
-conda create -n mlenvi python=3.6 anaconda
-Proceed: y
-conda activate mlenvi
-pip install environment_kernels
-conda install -c conda-forge imbalanced-learn
-Proceed: y
-python -m ipykernel install --user --name mlenvi
-pip install --upgrade tensorflow
+- conda update conda
+- Proceed: y
+- conda create -n mlenvi python=3.6 anaconda
+- Proceed: y
+- conda activate mlenvi
+- pip install environment_kernels
+- conda install -c conda-forge imbalanced-learn
+- Proceed: y
+- python -m ipykernel install --user --name mlenvi
+- pip install --upgrade tensorflow
 
 Also, the pandas datareader must be installed with pip install pandas-datareader. This will allow the data extraction from different internet sources (in this case Yahoo Finance), and make it a dataframe.
 
@@ -134,7 +133,7 @@ The dataset, as mentioned previously in the *Topic* section has the next content
 
 ![Rubi](https://user-images.githubusercontent.com/86340630/139752046-8a3b2bcc-87ac-42cb-a7f8-7e525a261827.png)
 
-The database contains the scraped data and the code to store it for backup using *sqlalchemy* is as follows:
+The database contains the scrapped data and the code to store it for backup using *sqlalchemy* is as follows:
 db_string = f"postgresql://postgress:{db_password}@localhost:port_number/database_name"
 engine = create_engine(db_string)
 data.to_sql(name="table_name", con=engine)
@@ -142,7 +141,7 @@ data_df= pd.read_sql("SELECT * FROM table_name", engine)
 data_df.head()
  
 ## Dashboard
-Visit the [Dashboard](https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/Project_B_Dashboard/General?publish=yes)
+Visit the [Dashboard](https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/stockAnalysis_Dashboard/General?publish=yes)
 
 # References
 José Alberto Mauricio. (n.d.). Introducción al Análisis de Series Temporales. Universidad Complutense De Madrid. Retrieved November 14, 2021, from https://www.ucm.es/data/cont/docs/518-2013-11-11-JAM-IAST-Libro.pdf
