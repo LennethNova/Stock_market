@@ -8,6 +8,7 @@ __pycache__/
 
 # Files to ignore
 csv/
+config.py
 
 # Distribution / packaging
 .Python
