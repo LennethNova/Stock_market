@@ -1,172 +1,161 @@
-# Draft:
+# STOCK MARKET PREDICTION
 
-## Topic
+# Topic
 
-Using Yahoo Finance and the code obtained from the Towards Data Science webpage (https://towardsdatascience.com/downloading-historical-stock-prices-in-python-93f85f059c1f) in order to scrape the information containing the stock data (Date, Open, High, Low, Close, Adj Close, Volume, Name), the topic that will be covered is to create a portfolio in order to suggest people or companies to invest. By working on the data, the target is to create a model that helps predict possible ups and downs in the market using the historical stock prices. The main reason to select this topic is that this data is real and will be of great use to polish skills and make something that will be useful for someone that wants to invert in the stock market, with this in mind we could have the chance to create a company that allows us to advise people or even companies about how to invest their money in the market with potential good results or even take a better decisions in our own investments.
+Using Yahoo Finance and the code obtained from the Towards Data Science webpage in order to scrape the information containing the stock data (Date, Open, High, Low, Close, Adj Close, Volume, Name), the topic that will be covered is to create a portfolio in order to suggest people or companies to invest. By working on the data, the target is to create a model that helps predict possible ups and downs in the market using the historical stock prices. The main reason to select this topic is that this data is real and will be of great use to polish skills and make something that will be useful for someone that wants to invert in the stock market, with this in mind we could have the chance to create a company that allows us to advise people or even companies about how to invest their money in the market with potential good results or even take a better decisions in our own investments.
+
 Using a time series model and machine learning models, specially Support Vector Machine and Artificial Neural Networks, the data will be tested and trained to try to accomplish a good percent of accuracy. For this, the data that will be used are samples taken in regular time intervals, with pandas, numpy and matplotlib, the time behavior can be observed. Also, it is important to note that Keras will be used and, a deeper research on exponential smoothing will be made.
 
-# Communication protocols
+# Presentation:
+Using Google slides, the draft of the presentation is located here. The slides presented there, are just showing some images, but notes were added in order to remind what that part is about.
 
-To communicate with the team members, the next platforms will be used: -Slack: There was a new workspace created in order to keep in touch with all the team members.
+# Selected topic: Stock prices prediction.
 
-* Zoom: Using the time during the bootcamp and office hours in order to keep working on the project. Also, there is the possibility to use it outside the bootcamp class or office 
-hours.
-* Google Meet: In case there is a need to discuss any topic related to the challenge, and there is no way to access Zoom, this will be another way to contact each team member.
+Why that topic: Create a model that predicts possible ups and downs in order to suggest investment.
+Source of data: Yahoo Finance
+Questions to answer: How to invest? Which are the best stock options?
+Data exploration phase: Scrap the data in order to know what it has.
+Analysis phase: data extraction, data exploration, check possible database to generate, data preprocessing, data training, ML models, predictors, dashboard dummy visualization.
 
-## Github
+# Github
 
-A Github was created with the name of Project_B (https://github.com/LennethNova/Project_B) and each team member has a branch with their respective name in order to control the way the data will be uploaded.
+A Github was created with the name of Stock_market and each team member has a branch with their respective name in order to control the way the data will be uploaded.
 
-## Machine Learning Model
-
+# Machine Learning Model
 For this data, different models will be used to test the accuracy. As previously mentioned in the Topic section, SVM, ANN and other models will be used to train and test the data. Libraries such as pandas, numpy and matplotlib will also be considered in this point, but the analysis will not be exclusive to the use of those since some others will be needed in order to accomplish the project. The challenge is to get the best accuracy possible for the models and to make a good use of the code to get the expected results to make an accurate portfolio of the suggested investments.
 
-## Database
+During the preprocessing phase, the data for each company is shown in its individual stock graph and the second is referring to the stationality. This way it can be determined if the stock could depend on the season or if it will be random.
 
+![image](https://user-images.githubusercontent.com/86340630/143376859-3b39c371-4aaa-415f-bac8-16a8ba794577.png)
+
+
+# MODELS
+# ARIMA
+A popular and widely used statistical method for time series forecasting is the ARIMA model. ARIMA is an acronym that stands for AutoRegressive Integrated Moving Average. It is a class of model that captures a suite of different standard temporal structures in time series data.
+
+The log transformation is often used to convert time series that are non stationary with respect to the innovation variance into stationary time series. As one alternative, you can simply exponentiate the forecast series. This procedure gives a forecast for the median of the series, but the antilog of the forecast log series underpredicts the mean of the original series.
+
+Augmented Dickey Fuller test (ADF Test) is a common statistical test used to test whether a given time series is stationary or not. It is one of the most commonly used statistical test when it comes to analyzing the stationary of a series. Dickey-Fuller test is a unit root test that tests the null hypothesis that α=1 in the following model equation. alpha is the coefficient of the first lag on Y.
+
+Null Hypothesis (H0): alpha=1 The Augmented Dickey-Fuller test evolved based on the above equation and is one of the most common forms of Unit Root test.
+
+ARIMA term refers to the past values used for forecasting the next value. The AR term is defined by the parameter "p" in arima.p is the number of autoregressive terms, the value of "p" is determined using the PACF plot. MA term is used to define the number of past forecast errors used to predict the future values. The parameter "q" in arima represents the MA term, "q" is the number of lagged forecast errors in the prediction equation. ACF plot is used to identify the correct "q" value. d is the* number of nonseasonal differences* needed for stationarity. Order of differencing specifies the number of times the differencing operation is performed in series to make it stationary.
+
+ARIMA(1,0,0) = first-order autoregressive: if the series is stationary and autocorrelated, perhaps it can be predicted as a multiple of its own previous value, plus a constant.
+
+ARIMA(0,1,0) = random walk: If the series is not stationary, the simplest possible model for it is a random walk model, which can be considered as a limiting case of an AR(1) model in which the autoregressive coefficient is equal to 1, i.e., a series with infinitely slow mean reversion.
+
+ARIMA(1,1,0) = differenced first-order autoregressive model: If the errors of a random walk model are autocorrelated, perhaps the problem can be fixed by adding one lag of the dependent variable to the prediction equation.
+
+ARIMA(0,1,1) without constant = simple exponential smoothing: Another strategy for correcting autocorrelated errors in a random walk model is suggested by the simple exponential smoothing model. Recall that for some nonstationary time series (e.g., ones that exhibit noisy fluctuations around a slowly-varying mean), the random walk model does not perform as well as a moving average of past values.
+
+ARIMA(0,1,1) with constant = simple exponential smoothing with growth: By implementing the SES model as an ARIMA model, you actually gain some flexibility. First of all, the estimated MA(1) coefficient is allowed to be negative: this corresponds to a smoothing factor larger than 1 in an SES model, which is usually not allowed by the SES model-fitting procedure. Second, you have the option of including a constant term in the ARIMA model if you wish, in order to estimate an average non-zero trend.ARIMA(0,2,1) or (0,2,2) without constant = linear exponential smoothing: Linear exponential smoothing models are ARIMA models which use two nonseasonal differences in conjunction with MA terms.
+
+ARIMA(0,2,1) or (0,2,2) without constant = linear exponential smoothing: Linear exponential smoothing models are ARIMA models which use two nonseasonal differences in conjunction with MA terms.
+
+ARIMA(1,1,2) without constant = damped-trend linear exponential smoothing:It extrapolates the local trend at the end of the series but flattens it out at longer forecast horizons to introduce a note of conservatism, a practice that has empirical support.
+
+# LSMT
+Long short-term memory (LSTM) units are units of a recurrent neural network (RNN). An RNN composed of LSTM units is often called an LSTM network. A common LSTM unit is composed of a cell, an input gate, an output gate and a forget gate. The cell remembers values over arbitrary time intervals and the three gates regulate the flow of information into and out of the cell.
+
+LSTM networks are well-suited to classifying, processing and making predictions based on time series data, since there can be lags of unknown duration between important events in a time series. LSTMs were developed to deal with the exploding and vanishing gradient problems that can be encountered when training traditional RNNs. Relative insensitivity to gap length is an advantage of LSTM over RNNs, hidden Markov models and other sequence learning methods in numerous applications.
+
+![image](https://user-images.githubusercontent.com/86340630/143376897-313ad9c4-41b6-48d6-b3cb-93b53cfd69d3.png)
+
+
+Changes in models
+The first attempt to analyze the data was using a code to scrap it and make it into a file in order to then clean it and process it. Using this method was slow and also some tickers were lost in the process, that is why it was decided to use the pandas-datareader according to the research that was made. After that change was made, the data cleaning was easier and it included all the tickers.
+
+Data preprocessing
+There were changes that had to be made in order for the model to work, one of those was to tae every healthcare related ticker and scraping the data instead of saving it into a database in order for the models to work. ARIMA and LSTM are the ones that researching lead to use those models. Also, it is important to install python 3.6 in order for this code to run properly, if not, an error will occur while running the models.
+
+Setting the envionment
+To run the model, the environment code in anaconda is as follows:
+
+conda update conda
+Proceed: y
+conda create -n mlenvi python=3.6 anaconda
+Proceed: y
+conda activate mlenvi
+pip install environment_kernels
+conda install -c conda-forge imbalanced-learn
+Proceed: y
+python -m ipykernel install --user --name mlenvi
+pip install --upgrade tensorflow
+Also, the pandas datareader must be installed with pip install pandas-datareader. This will allow the data extraction from different internet sources (in this case Yahoo Finance), and make it a dataframe.
+
+Running the model
+ARIMA and LSTM are optimized for this kind of data due to their respective properties because both models help with the forecast and also, since the project involves time, those two models were what some research pointed to use.
+
+Data preprocessing
+There were changes that had to be made in order for the model to work, one of those was to tae every healthcare related ticker and scraping the data instead of saving it into a database in order for the models to work. ARIMA and LSTM are the ones that researching lead to use those models.
+
+ARIMA and LSTM are optimized for this kind of data due to their respective properties.
+
+During the data gathering, yahoo finance was used using a scraper function in order to obtaing the ticker information. During this scraping, the money exchange that was used is Yen to US dollar and US dollar to UK currency. The indexes that were considered were The Standard and Poor's 500 (SP500), Dow Jones Industrial Average (DJIA) and the Volatility Index (VIXCLS). These were suggested in the book Machine Learning and Data Science Blueprints for Finance: From Building Trading Strategies to Robo-Advisors Using Python (1st ed.). Training and testing was divided in 80% to 20%.
+
+After collecting the respective data, the data was inspected in order to check what it was offering in order to get the training and testing information sets. The columns with the date, adjusted close and the ticker name were selected for the analysis. The Y variable is considered to be the weekly performance in time plus one, while the period will be five to make it supervised.
+
+To analyze the data, it is important to check if the seasonality applys to it in order to give a better predictor in Y. This will be shown in the images by ticker name.
+
+The X training and testing set have the lag by week, 3 weeks, 6 weeks and 12 weeks for a better visualization.
+
+It is important to note that all NaN data in X mush be removed and if anything still remains the SimpleImputer with mean will substitute the data in order to fill that null spaces that will normally be filled. This is only applied to the necessary data. In the dataset, the data that will be there is related to just weeks and has a start, finish and a leap leaving 225 observations since the model is only considering 52 weeks.
+
+A correlation matrix is shown with all and also by individual tickers. Unfortunately, the scatter matrix is too heavy for the current computer to run, but individuals are shown.
+
+In order to test the models, eash ticker was run individually and showed poor performance at predicting even with ARIMA or LSTM, but after testing the second time for each ticker versus all, the predictions improved drastically.
+
+The accuracy for this model increases by using more tickers, knowing this, testing a with more will probably make the model accurate. Also, as previously stated, the model is only considering 52 weeks, but increasing weeks could also lead to a best result.
+
+![image](https://user-images.githubusercontent.com/86340630/143377170-6b231ab8-d983-4034-bdda-d0803a4b57e0.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377189-8e7843fa-84b5-4816-8263-0299644bfa0b.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377216-d308f64a-391c-4870-811e-17f0ce37bb1c.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377272-28f90d24-fdaa-45a2-8d97-e1d350e74495.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377302-d20c6d87-4654-479a-847b-8678bb9f6a6a.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377376-c9e0b6ff-fc57-4c79-b8d3-110a8cfb3dbb.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377403-9e748e18-3eda-478f-856c-50b0e3369a6a.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377437-565cacb5-4594-4ee2-bea7-0bcd5d955f1c.png)
+
+![image](https://user-images.githubusercontent.com/86340630/143377457-19ed083d-0190-4583-bfeb-f6646524d68d.png)
+
+
+# Database
 The dataset, as mentioned previously in the Topic section has the next content:
 
-      Stock symbol
-      
-      Date
-      
-      Open
-      
-      High
-      
-      Low
-      
-      Closing
-      
-      Adjusting Closing price
-      
-      Volume traded
+Stock symbol
+Date
+Open
+High
+Low
+Closing
+Adjusting Closing price
+Volume traded
 
-![image](https://user-images.githubusercontent.com/86340630/139751767-e636da64-2826-46b3-9ec0-83ff34d40b72.png)
+![image](https://user-images.githubusercontent.com/86340630/143377552-7e399ec9-36ad-49ac-962a-f625a5c1cb29.png)
 
-![image](https://user-images.githubusercontent.com/86340630/139751786-a6049d04-c678-4ce1-bc42-96ae5e3b9d0b.png)
+![image](https://user-images.githubusercontent.com/86340630/143377569-100ea321-aed9-452b-ae6d-c11032fa43bc.png)
 
-![Captura de pantalla (984)](https://user-images.githubusercontent.com/86340630/139752046-8a3b2bcc-87ac-42cb-a7f8-7e525a261827.png)
+![image](https://user-images.githubusercontent.com/86340630/143377615-b2ec7eaa-f4cc-4e6f-a48e-5241ad023578.png)
+
 
 # Dashboard
 
-For now, the dashboard will not be shown since the data needs to be complete in order to start visualizing the results, but the idea is to create a Dashboard that we can use it with our potential clients to be able to advise them in an easier and more visual way in with we can communicate the findings of the models in an understandable way so they can make and informed decision.
+Visit the Dashboard https://public.tableau.com/app/profile/alejandra.s.nchez.del.moral/viz/stockAnalysis_Dashboard/General?publish=yes
 
+References
+José Alberto Mauricio. (n.d.). Introducción al Análisis de Series Temporales. Universidad Complutense De Madrid. Retrieved November 14, 2021, from https://www.ucm.es/data/cont/docs/518-2013-11-11-JAM-IAST-Libro.pdf
 
-# Long Short-Term Memory Network (LSTM)
+Understanding LSTM Networks. (2015, August 27). Colah’s Blog. Retrieved November 14, 2021, from https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
-LSTM es una RNN que es entrenada usando Backpropagation Through Time y supera el problema del gradiente que desaparece. En lugar de neuronas el LSTM tiene bloques de memoria que se conectan en capas. Un bloque tiene componentes que la hacen más "lista" que clásicas neurona y una memoria para secuencias recientes. Un bloque contiene puertas que administran el estado del bloque y su output. Una unidad opera a través de una secuencia de inputs y cada puerta dentro del bloque usa una función sigmoidal para controlar si son "disparadas" o no, haciendo el cambio en el bloque y si la información viaja o no.
-
-Hay 3 tipos de puertas dentro de una unidad de memoria:
-
-Puerta de Olvido: Condicionalmente decide qué información descartar
-Puerta Input: "" qué valores del input actualizarán el estado de memoria
-Puerta Output: "" que outpus se tendrán basados en el input y la memoria.
-Cada puerta tiene pesos que se aprenden durante el proceso.
-
-![image](https://user-images.githubusercontent.com/86340630/142929530-9052af20-0f27-4bf5-abc0-817daa05b821.png)
-
-![image](https://user-images.githubusercontent.com/86340630/142930778-7002f588-992c-4d88-91e6-ece961976a48.png)
-
-# Modelos Tradicionales de Series de Tiempo
-
-Hay muchas formas de modelar una serie de tiempo para hacer predicciones. La mayoría de los modelos de series de tiempo tienen como objetivo incorporar la tendencia, la estacionalidad y los componentes restantes al mismo tiempo que abordan la autocorrelación y la estacionariedad incrustadas en la serie de tiempo. Por ejemplo, el modelo autorregresivo (AR) discutido en la sección anterior aborda la autocorrelación en la serie de tiempo.
-
-# ARIMA
-Si combinamos la estacionariedad con la autorregresión y un modelo de media móvil (discutido más adelante en esta sección), obtenemos un modelo ARIMA. ARIMA es un acrónimo de AutoRegressive Integrated Moving Average, y tiene los siguientes componentes:
-
-AR (p)
-
-Representa la autorregresión, es decir, la regresión de la serie de tiempo sobre sí misma, como se discutió en la sección anterior, con el supuesto de que los valores de la serie actual dependen de sus valores anteriores con algún rezago (o varios rezagos). El retraso máximo en el modelo se denomina p.
-
-I(d)
-
-Representa el orden de integración. Es simplemente el número de diferencias necesarias para que la serie sea estacionaria.
-
-MA (q)
-
-Representa media móvil. Sin entrar en detalles, modela el error de la serie temporal; de nuevo, el supuesto es que el error actual depende del anterior con cierto rezago, al que se hace referencia como q.
-
-La ecuación de la media móvil se escribe como:
-
-yt = c + εt + θ1εt – 1 + θ2εt – 2
-
-donde, εt es ruido blanco. Nos referimos a esto como un modelo MA (q) de orden q.
-
-Combinando todos los componentes, el modelo ARIMA completo se puede escribir como:
-
-yt ′ = φ1yt′ – 1 + ⋯ + φpyt′ – p + θ1εt – 1 + ⋯ + θqεt – q + εt donde yt 'es la serie diferenciada (puede haber sido diferenciada más de una vez).
-
-Los predictores del lado derecho incluyen tanto valores rezagados de yt 'como errores rezagados. A esto lo llamamos un modelo ARIMA (p, d, q), donde p es el orden de la parte autorregresiva, d es el grado de primera diferenciación involucrado y q es el orden de la parte de la media móvil.
-
-Las mismas condiciones de estacionariedad e invertibilidad que se utilizan para los modelos autorregresivos y de media móvil también se aplican a un modelo ARIMA.
-
-![image](https://user-images.githubusercontent.com/86340630/142930979-8fe0c429-6850-4f8c-938c-41c0a4733af7.png)
-
-Autocorrelación y Estacionarios
-Hay muchas situaciones en las que los elementos consecutivos de una serie de tiempo muestran una correlación. Es decir, el comportamiento de los puntos secuenciales de la serie se afecta entre sí de manera dependiente.
-
-La autocorrelación es la similitud entre observaciones en función del desfase temporal entre ellas. Estas relaciones se pueden modelar utilizando un modelo de autoregresión. El término autoregresión indica que es una regresión de la variable contra sí misma.
-
-En un modelo de autoregresión, pronosticamos la variable de interés utilizando una combinación lineal de valores pasados de la variable.
-
-Por tanto, un modelo autorregresivo de orden p se puede escribir como
-
-yt = c + φ1yt – 1 + φ2yt – 2 + .... φpyt – p + ε
-
-donde εt es ruido blanco.
-
-Un modelo autorregresivo es como una regresión múltiple pero con valores rezagados de yt como predictores. Nos referimos a esto como un modelo AR (p), un modelo autorregresivo de orden p. Los modelos autorregresivos son notablemente flexibles para manejar una amplia gama de patrones de series de tiempo diferentes.
-
-Estacionario
-Se dice que una serie de tiempo es estacionaria si sus propiedades estadísticas no cambian con el tiempo. Así, una serie de tiempo con tendencia o con estacionalidad no es estacionaria, ya que la tendencia y la estacionalidad afectarán el valor de la serie de tiempo en diferentes momentos. Por otro lado, una serie de ruido blanco es estacionaria, ya que no importa cuando la observe; debería verse similar en cualquier momento.
-
-# No estacionarias
-
-![image](https://user-images.githubusercontent.com/86340630/142931274-7de9d13d-54c6-41a4-8e54-be639198f72e.png)
-
-
-En la primera gráfica, podemos ver claramente que la media varía (aumenta) con el tiempo, lo que resulta en una tendencia al alza. Por tanto, esta es una serie no estacionaria. Para que una serie se clasifique como estacionaria, no debe presentar una tendencia.
-
-Pasando al segundo gráfico, ciertamente no vemos una tendencia en la serie, pero la varianza de la serie es una función del tiempo. Una serie estacionaria debe tener una varianza constante; por lo tanto, esta serie también es una serie no estacionaria.
-
-En el tercer gráfico, la propagación se acerca a medida que aumenta el tiempo, lo que implica que la covarianza es una función del tiempo.
-
-# Estacionaria
-
-![image](https://user-images.githubusercontent.com/86340630/142931194-43381a9a-8158-47b3-86bd-e9defae29230.png)
-
-
-En este caso, la media, la varianza y la covarianza son constantes en el tiempo. Así es como se ve una serie de tiempo estacionaria. Sería más fácil predecir valores futuros utilizando este cuarto gráfico. La mayoría de los modelos estadísticos requieren que la serie sea estacionaria para realizar predicciones precisas y efectivas.
-
-Las dos razones principales detrás de la no estacionariedad de una serie de tiempo son la tendencia y la estacionalidad, como se muestra en la figura de 3. Para utilizar modelos de predicción de series de tiempo, generalmente convertimos cualquier serie no estacionaria en una serie estacionaria, lo que facilita el modelado, ya que las propiedades estadísticas no cambian con el tiempo.
-
-Diferenciar
-La diferenciación es uno de los métodos utilizados para hacer estacionaria una serie de tiempo. En este método, calculamos la diferencia de términos consecutivos en la serie.
-
-La diferenciación se realiza típicamente para deshacerse de la media variable. Matemáticamente, la diferenciación se puede escribir como: yt ′ = yt - yt – 1 donde yt es el valor en un tiempo t.
-
-Cuando la serie diferenciada es ruido blanco, la serie original se denomina serie no estacionaria de grado uno.
-
-![image](https://user-images.githubusercontent.com/86340630/142931442-1c51ad49-188e-4ff6-a81f-c06c82ea5f08.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Tatsat, H., Puri, S., & Lookabaugh, B. (2020). Machine Learning and Data Science Blueprints for Finance: From Building Trading Strategies to Robo-Advisors Using Python (1st ed.). O’Reilly Media.
 
 
 
